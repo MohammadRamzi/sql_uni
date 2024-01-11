@@ -1,0 +1,299 @@
+SQL Commands:
+1. CREATE command
+2. UPDATE command
+3. DELETE command
+4. SELECT command
+5. DROP command
+6. INSERT command
+
+CREATE -> new database, 
+	new table, 
+	table view, 
+	and other objects of the database.
+
+UPDATE -> updating or 
+	changing the stored data in the database.
+
+
+DELETE -> removing or erasing the saved records from the database tables. 
+	It erases single or multiple tuples from the tables of the database.
+
+
+SELECT -> accessing the single or multiple rows 
+	from one or multiple tables.
+	also use the WHERE clause.
+
+DROP -> deleting the entire table, 
+	table view, 
+	and other objects from the database.
+
+INSERT -> inserting the data or records into the database tables.
+	in single and multiple rows of the table.
+
+-----------------------------------------------------------------------------
+
+(SQL Syntax)
+
+Each SQL statement: KEYWORD ... ;
+
+Most Important SQL Commands and Statements:
+ 1. Select Statement
+ 2. Update Statement
+ 3. Delete Statement
+ 4. Create Table Statement
+ 5. Alter Table Statement
+ 6. Drop Table Statement
+ 7. Create Database Statement
+ 8. Drop Database Statement
+ 9. Insert Into Statement
+10. Truncate Table Statement
+11. Describe Statement
+12. Distinct Clause
+13. Commit Statement
+14. Rollback Statement
+15. Create Index Statement
+16. Drop Index Statement
+17. Use Statement
+
+ 1. Select Statement
+reads data from the SQL database and shows it as the output to the database user.
+
+syntax:
+SELECT col1, col2, col3, ..., colN
+[ FROM table_name ]
+[ WHERE condition ]
+[ ORDER BY order_column_name1 [ ASC | DESC ], .... ];
+
+EX1)
+SELECT *
+FROM stud
+WHERE avg > 17;
+
+EX2)
+SELECT Emp_ID, First_Name, Last_Name, Salary, City
+FROM Employee_details
+WHERE Salary = 100000
+ORDER BY Last_Name;
+
+
+ 2. Update Statement
+changes or modifies the stored data
+
+syntax:
+UPDATE table_name
+SET column_name1 = new_value_1, column_name2 = new_value_2, ...., column_nameN = new_value_N
+[ WHERE  CONDITION ];
+
+EX1)
+UPDATE userTable
+SET gift = 10
+WHERE userRate > 5;
+
+EX2)
+UPDATE Employee_details
+SET Salary = 100000
+WHERE Emp_ID = 10;
+
+
+ 3. Delete Statement
+deletes the stored data.
+
+syntax:
+DELETE FROM table_name
+[ WHERE CONDITION ];
+
+EX1)
+DELETE FROM bookout
+WHERE soldCount < 100;
+
+EX2)
+DELETE FROM Employee_details
+WHERE First_Name = 'Sumit';
+
+
+ 4. Create Table Statement
+creates the new table in the SQL database.
+
+syntax:
+CREATE TABLE table_name
+(
+column_name1 data_type [column1 constraint(s)],
+column_name2 data_type [column2 constraint(s)],
+.....
+.....,
+column_nameN data_type [columnN constraint(s)],
+PRIMARY KEY(one or more col)
+);
+
+EX1)
+CREATE TABLE Employee_details
+(
+      Emp_Id NUMBER(4) NOT NULL,
+      First_name VARCHAR(30),
+      Last_name VARCHAR(30),
+      Salary Money,
+      City VARCHAR(30),
+      PRIMARY KEY (Emp_Id)
+);
+primary key -> means that column cannot contain duplicate values and null values.
+
+
+ 5. Alter Table Statement
+adds, deletes, and modifies the columns of the table.
+                          | ADD         |             | datatype[(size)];
+=> ALTER TABLE table_name | MODIFY      | column_name | datatype[(size)];
+                          | DROP COLUMN |             |;
+
+syntax:
+1. adds the column with its datatype
+ALTER TABLE table_name ADD column_name datatype[(size)];
+
+2. renames the old column name to the new column name
+ALTER TABLE table_name MODIFY column_name column_datatype[(size)];
+
+3. deletes the column
+ALTER TABLE table_name DROP COLUMN column_name;
+
+EX1)
+ALTER TABLE Employee_details
+ADD Designation VARCHAR(18);
+
+EX2)
+ALTER TABLE student MODIFY course varchar(20);
+
+
+ 6. Drop Table Statement
+deletes or removes the table and the structure,
+views, permissions, and triggers associated with that table.
+
+syntax:
+DROP TABLE [ IF EXISTS ]
+table_name1, table_name2, ……, table_nameN;
+
+EX1)
+DROP TABLE badStud;
+
+EX2)
+DROP TABLE Employee_details;
+
+
+ 7. Create Database Statement
+creates the new database in the database management system.
+
+syntax:
+CREATE DATABASE database_name;
+
+EX1)
+CREATE DATABASE Company;
+
+
+ 8. Drop Database Statement
+deletes the existing database with all the data tables and views
+from the database management system.
+
+syntax:
+DROP DATABASE database_name;
+
+EX1)
+DROP DATABASE Company;
+
+
+ 9. Insert Into Statement
+inserts the data or records -> single and multiple records in a single query.
+
+syntax:
+INSERT INTO table_name
+(
+column_name1,
+column_name2, .…,
+column_nameN
+)
+VALUES
+(value_1,
+value_2, ..…,
+value_N
+);
+
+EX1)
+INSERT INTO book
+(
+    book#,
+    writer,
+    genre
+)
+VALUES
+(
+    1,
+    JKRooling,
+    teenage
+);
+
+EX2)
+INSERT INTO Employee_details
+(
+Emp_ID,
+First_name,
+Last_name,
+Salary,
+City
+)
+VALUES
+(101,
+Akhil,
+Sharma,
+40000,
+Bangalore
+);
+
+10. Truncate Table Statement
+deletes all the stored records from the table.
+
+
+11. Describe Statement
+tells something about the specified table or view in the query.
+
+
+12. Distinct Clause
+shows the distinct values from the specified columns of the database table.
+used with the SELECT keyword.
+
+
+13. Commit Statement
+saves the changes permanently,
+which are done in the transaction of the SQL database.
+
+
+14. Rollback Statement
+undo the transactions and operations which are not yet saved.
+
+
+15. Create Index Statement
+creates the new index in the SQL database table.
+
+
+16. Drop Index Statement
+deletes the existing index of the SQL database table.
+
+
+17. Use Statement
+selects the existing SQL database.
+Before performing the operations on the database table,
+you have to select the database from the multiple existing databases.
+
+-----------------------------------------------------------------------------
+
+(SQL Data Types)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
