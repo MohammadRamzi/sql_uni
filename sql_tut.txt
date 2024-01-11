@@ -1,3 +1,7 @@
+-----------------------------------------------------------------------------
+
+(SQL Commands)
+
 SQL Commands:
 1. CREATE command
 2. UPDATE command
@@ -7,28 +11,28 @@ SQL Commands:
 6. INSERT command
 
 CREATE -> new database, 
-	new table, 
-	table view, 
-	and other objects of the database.
+	    new table, 
+	    table view, 
+	    and other objects of the database.
 
 UPDATE -> updating or 
-	changing the stored data in the database.
+	    changing the stored data in the database.
 
 
 DELETE -> removing or erasing the saved records from the database tables. 
-	It erases single or multiple tuples from the tables of the database.
+	    It erases single or multiple tuples from the tables of the database.
 
 
 SELECT -> accessing the single or multiple rows 
-	from one or multiple tables.
+    	from one or multiple tables.
 	also use the WHERE clause.
 
 DROP -> deleting the entire table, 
-	table view, 
-	and other objects from the database.
+	    table view, 
+	    and other objects from the database.
 
 INSERT -> inserting the data or records into the database tables.
-	in single and multiple rows of the table.
+	    in single and multiple rows of the table.
 
 -----------------------------------------------------------------------------
 
@@ -336,15 +340,162 @@ CURSOR
 TABLE
 UNIQUEIDENTIFIER
 
+-----------------------------------------------------------------------------
+
+(SQL Operators)
+
+Operators:
+1. Arithmetic
+2. Comparison
+3. Logical
+4. Set
+5. Bit-wise
+6. Unary
 
 
+1. Arithmetic -> ( + - * / % )
 
 
+2. Comparison -> ( = != > >= < <= )
 
 
+3. Logical -> ( ALL, AND, OR, BETWEEN, IN, NOT, ANY, LIKE )
+
+ALL: compares the specified value.
+    to all the values of a column from the sub-query.
+    used with ( SELECT, HAVING, WHERE )
+
+syntax:
+SELECT column_Name1, ...., column_NameN 
+FROM table_Name 
+WHERE column Comparison_operator ALL (SELECT column 
+                                    FROM tablename2)  
+
+EX)
+SELECT Emp_Id, Emp_Name 
+FROM Employee_details 
+WHERE Emp_Salary > ALL (SELECT Emp_Salary 
+                        FROM  Employee_details 
+                        WHERE Emp_City = Jaipur)  
 
 
+AND / OR: conditions separator.
+        used with ( WHERE )
+
+syntax:
+SELECT column1, ...., columnN 
+FROM table_Name 
+WHERE condition1 AND condition2 OR condition3 AND ....... OR conditionN;  
+
+EX)
+SELECT * 
+FROM Employee_details 
+WHERE Emp_Salary = 25000 AND Emp_City = 'Delhi' OR Emp_Id < 100;   
 
 
+BETWEEN: shows the record within the range mentioned in the SQL query. 
+        operates on the numbers, characters, and date/time operands.
+
+syntax:
+SELECT column_Name1, column_Name2 ...., column_NameN 
+FROM table_Name 
+WHERE column_name BETWEEN value1 and value2;  
+
+EX)
+SELECT * 
+FROM Employee_details 
+WHERE Emp_Salary BETWEEN 30000 AND 45000;   
 
 
+IN: allows to specify two or more values in a WHERE clause.
+
+syntax:
+SELECT column_Name1, column_Name2 ...., column_NameN 
+FROM table_Name 
+WHERE column_name IN (list_of_values);  
+
+EX1)
+SELECT * 
+FROM Employee_details 
+WHERE Emp_Id IN (202, 204, 205);  
+
+EX2)
+SELECT * 
+FROM Employee_details 
+WHERE Emp_Id NOT IN (202,205);  
+
+
+NOT: shows the record if the condition is false.
+
+syntax:
+SELECT column1, column2 ...., columnN 
+FROM table_Name 
+WHERE NOT condition;  
+
+EX1)
+SELECT * 
+FROM Employee_details 
+WHERE NOT Emp_City = 'Delhi' ;  
+
+EX2)
+SELECT * 
+FROM Employee_details 
+WHERE NOT Emp_City = 'Delhi' AND NOT Emp_City = 'Chandigarh';   
+
+
+ANY: shows the records when any of the values 
+    returned by the sub-query meet the condition.
+
+syntax:
+SELECT column1, column2 ...., columnN 
+FROM table_Name 
+WHERE column_name comparison_operator ANY ( SELECT column_name 
+                                            FROM table_name 
+                                            WHERE condition(s)) ;  
+
+
+LIKE: shows those records which match 
+    with the given pattern specified in the sub-query.
+    used with ( SELECT, UPDATE, DELETE )
+
+syntax:
+SELECT column_Name1, column_Name2 ...., column_NameN 
+FROM table_Name 
+WHERE column_name LIKE pattern;  
+
+EX1)
+SELECT * 
+FROM Employee_details 
+WHERE Emp_Name LIKE 's%' ;   
+
+EX2)
+SELECT * 
+FROM Employee_details 
+WHERE Emp_Name LIKE '%y' ;   
+
+EX3)
+SELECT * 
+FROM Employee_details 
+WHERE Emp_Name LIKE 'S%y' ;   
+
+
+4. Set -> ( UNION, UNION ALL, INTERSECT, MINUS )
+
+UNION: combines the result 
+    of two or more SELECT statements.
+
+UNION ALL: is the same as the UNION operator, 
+        but it also shows the same record.
+
+INTERSECT: shows the common record 
+        from two or more SELECT statements.
+
+MINUS: combines the result of two or more SELECT statements 
+    and shows only the results from the first data set.
+
+syntax:
+SELECT column1, column2 ...., columnN FROM table_Name1 [WHERE conditions]    
+( UNION, UNION ALL, INTERSECT, MINUS )
+SELECT column1, column2 ...., columnN FROM table_Name2 [WHERE conditions];  
+
+-----------------------------------------------------------------------------
