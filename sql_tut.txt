@@ -284,6 +284,57 @@ you have to select the database from the multiple existing databases.
 
 (SQL Data Types)
 
+types: string, numeric, date and time
+
+
+MySQL:
+
+String types:
+CHAR(size), VARCHAR(size),
+BINARY(size), VARBINARY(size),
+TEXT, TINYTEXT, MEDIUMTEXT, LONGTEXT,
+ENUM(val1, val2, ...), SET(val1, val2, ...)
+BLOB(size)
+
+Numeric types:
+BIT(size),
+INT(size), INTEGER(size),
+FLOAT(size,d), FLOAT(p),
+DOUBLE(size,d),
+DECIMAL(size,d), DEC(size,d),
+BOOL
+
+Date and Time types:
+DATE, DATETIME(fsp),
+TIMESTAMP(fsp), TIME(fsp),
+YEAR
+
+
+SQL Server:
+
+CHAR(size), VARCHAR(size), VARCHAR(max),
+TEXT, NTEXT
+NCHAR, NVARCHAR,
+BINARY(size), VARBINARY,
+IMAGE
+
+Numeric types:
+BIT,
+TINYINT, SMALLINT, INT, BIGINT,
+FLOAT(size), REAL,
+MONEY
+
+Date and Time types:
+DATETIME, DATETIME2,
+DATE,
+TIME, TIMESTAMP,
+
+Other types:
+SQL_VARIANT
+XML
+CURSOR
+TABLE
+UNIQUEIDENTIFIER
 
 
 
